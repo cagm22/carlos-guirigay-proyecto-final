@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block titulo %} Editar Post {% endblock titulo %}
+{% block banner %} EDITANDO EL POST: {{ post }} {% endblock banner %}
+{% block subbanner %}{% endblock subbanner %}
+{% block cuerpo %}
+
+
+<body>
+	<div class="blog" id="blog">
+		<div class="container">
+			<div class="default-heading">
+				<h2>
+                    {% if miFormulario.errors %}
+                    <p style="color: red;"> Estan mal los datos </p>
+                    {% endif %}
+
+
+
+                    <form action="{% url 'Appblog:editarPost' post.titulo %}" method="POST">{% csrf_token %}
+                        <table>
+                            {{ formulario.as_table }}
+                        </table>
+                        <input type="submit" value="Guardar">
+                    </form>
+                    
+
+
+
+
+
+                </h2>
+			</div>
+		</div>
+	</div>
+</body>
+
+{% endblock cuerpo %}	

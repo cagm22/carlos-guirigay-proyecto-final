@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load static %}
+
+		<meta charset="utf-8">
+		<title>{% block titulo %} BLOG DE CIENCIA {% endblock titulo %}</title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="ResponsiveWebInc">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="{% static "Appblog/css/bootstrap.min.css" %}" rel="stylesheet">
+		<!-- Font awesome CSS -->
+		<link href="{% static "Appblog/css/font-awesome.min.css" %}" rel="stylesheet">		
+		<!-- Custom CSS -->
+		<link href="{% static "Appblog/css/style.css" %}" rel="stylesheet">
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="#">
+	</head>
+	
+	<body>
+	
+		<div class="wrapper">
+		
+			<!-- header -->
+			<header>
+				<!-- navigation -->
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="{% url 'Appblog:index' %}"><img class="img-responsive" src={% static "Appblog/img/logo.png" %} alt="Logo" /></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="{% url 'Appblog:index' %}">Inicio</a></li>
+								<li><a href="{% url 'Appblog:about' %}">Sobre Bloger</a></li>
+								<li><a href="{% url 'Appblog:lista_posts' %}">Listado de Posts</a></li>
+								<li><a href="{% url 'Appblog:index' %}">Chat</a></li>
+								<li><a href="{% url 'Appblog:postformulario' %}">Crear Post</a></li>
+								{% if user.is_authenticated %}
+								<li><a href="{% url 'Appblog:logout' %}">Logout</a></li>
+								<li><a href="{% url 'Appblog:editarPerfil' %}">Mi Perfil</a></li>
+
+								<li><a href="">¡Hola {{ user }}!</a></li>
+								<img height="60px" src="{{ avatar }}" alt="">
+
+								{% else %}
+								<li><a href="{% url 'Appblog:register' %}">Registrarse</a></li>
+								<li><a href="{% url 'Appblog:login' %}">Login</a></li>
+								{% endif %}
+
+
+
+<!--							<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#event">Events</a></li>
+										<li><a href="#subscribe">Subscribe</a></li>
+										<li><a href="#team">Executive Team</a></li>
+										<li><a href="#">One more separated link</a></li>
+									</ul>
+								</li>			-->	
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</header>
+			
+			<!-- banner -->
+			<div class="banner">
+				<div class="container">
+					<!-- heading -->
+					<h2>{% block banner %}Bienvenido al Blog de la Ciencia{% endblock banner %}</h2>
+					<!-- paragraph -->
+					<p>{% block subbanner %} It is our belief that in order to be most efficient it requires adaptive technology and software our customers can focus on their core business.{% endblock subbanner %}</p>
+				</div>
+			</div>
+			<!-- banner end -->
+			
+			
+			<!-- after banner end-->
+			
+			<!-- events -->
+			<h2>{{ mensaje }}</h2>
+
+			<!-- events end -->
+			{% block cuerpo %}
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- blog -->
+<div class="blog" id="blog">
+    <div class="container">
+        <div class="default-heading">
+            <!-- heading -->
+            <h2>Latest Blogs</h2>
+            <h2>{{ mensaje }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post1.imagen_referencia.url }} alt="Blog" />
+
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post1.slug %}">{{ post1.titulo }}</a></h3>   
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post1.fecha_publicacion }} | {{ post1.categoria }} | {{ post1.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post1.descripcion }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post2.imagen_referencia.url }} alt="Blog" />
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post2.slug %}">{{ post2.titulo }}</a></h3>
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post2.fecha_publicacion }} | {{ post2.categoria }} | {{ post2.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post2.descripcion }}</p>
+                </div>
+            </div><div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post3.imagen_referencia.url }} alt="Blog" />
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post3.slug %}">{{ post3.titulo }}</a></h3>
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post3.fecha_publicacion }} | {{ post3.categoria }} | {{ post3.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post3.descripcion }}</p>
+                </div>
+            </div><div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post4.imagen_referencia.url }} alt="Blog" />
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post4.slug %}">{{ post4.titulo }}</a></h3>
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post4.fecha_publicacion }} | {{ post4.categoria }} | {{ post4.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post4.descripcion }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#" class="btn btn-default">See More</a>
+        </div>
+    </div>
+</div>
+<!-- blog end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			<!-- subscribe -->
+			<div class="subscribe" id="subscribe">
+				<div class="container">
+					<!-- subscribe content -->
+					<div class="sub-content">
+						<h3>Subscribe Here for Updates</h3>
+						<form role="form">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Email...">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button">Subscribe</button>
+									</span>
+							</div><!-- /input-group -->
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- subscribe end -->
+			
+
+			{% endblock cuerpo %}
+			<!-- footer -->
+			<footer>
+				<div class="container">
+					<p><a href="#">Home</a> | <a href="#work">works</a> | <a href="#team">Team</a> | <a href="#contact">Contact</a></p>
+				</div>
+			</footer>
+
+		</div>
+		
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src={% static "Appblog/js/jquery.js" %}></script>
+		<!-- Bootstrap JS -->
+		<script src={% static "Appblog/js/bootstrap.min.js" %}></script>
+		<!-- Respond JS for IE8 -->
+		<script src={% static "Appblog/js/respond.min.js" %}></script>
+		<!-- HTML5 Support for IE -->
+		<script src={% static "Appblog/js/html5shiv.js" %}></script>
+		<!-- Custom JS -->
+		<script src={% static "Appblog/js/custom.js" %}></script>
+	</body>	
+</html>

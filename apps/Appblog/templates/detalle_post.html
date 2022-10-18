@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block titulo %} {{ post.categoria }} | {{ post.autor }} {% endblock titulo %}
+{% block banner %} {{ post.autor }} | {{ post.titulo }} {% endblock banner %}
+{% block subbanner %}{% endblock subbanner %}
+{% block cuerpo %}
+			<!-- blog -->
+			<div class="blog" id="blog">
+				<div class="container">
+					<div class="default-heading">
+						<!-- heading -->
+<!--						<h2>Latest Blogs</h2>			-->
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-sm-6">
+							<!-- blog entry -->
+							<div class="entry">
+								<!-- blog entry image -->
+								<img class="img-responsive" src={{ post.imagen_referencia.url }} alt="Blog" />
+								<!-- heading / blog post title -->
+								<h3><a href="#">{{ post.titulo }}</a></h3>
+								<!-- blog information -->
+								<span class="meta">
+									{{ post.fecha_publicacion }} | {{ post.categoria }} | {{ post.autor }}
+								</span>
+								<!-- paragraph -->
+								<h5>{{ post.descripcion }}</h5>
+								<!-- paragraph -->
+								<p>{{ post.cuerpo | striptags }}</p>
+
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6">
+						</div>
+					</div>
+<!--					<div class="text-center">
+						<a href="#" class="btn btn-default">See More</a>	-->
+					</div>
+				</div>
+			</div>
+			<!-- blog end -->
+
+
+{% endblock cuerpo %}			
+			<!-- subscribe -->
+			<div class="subscribe" id="subscribe">
+				<div class="container">
+					<!-- subscribe content -->
+					<div class="sub-content">
+						<h3>Subscribe Here for Updates</h3>
+						<form role="form">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Email...">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button">Subscribe</button>
+									</span>
+							</div><!-- /input-group -->
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- subscribe end -->
+			
+
+			<!-- footer -->
+			<footer>
+				<div class="container">
+					<p><a href="#">Home</a> | <a href="#work">works</a> | <a href="#team">Team</a> | <a href="#contact">Contact</a></p>
+				</div>
+			</footer>
+
+		</div>
+		
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script src={% static "Appblog/js/jquery.js" %}></script>
+		<!-- Bootstrap JS -->
+		<script src={% static "Appblog/js/bootstrap.min.js" %}></script>
+		<!-- Respond JS for IE8 -->
+		<script src={% static "Appblog/js/respond.min.js" %}></script>
+		<!-- HTML5 Support for IE -->
+		<script src={% static "Appblog/js/html5shiv.js" %}></script>
+		<!-- Custom JS -->
+		<script src={% static "Appblog/js/custom.js" %}></script>
+	</body>	
+</html>

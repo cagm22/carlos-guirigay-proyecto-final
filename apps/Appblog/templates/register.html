@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block titulo %} Registro {% endblock titulo %}
+{% block banner %} REGISTRO {% endblock banner %}
+{% block subbanner %}{% endblock subbanner %}
+{% block cuerpo %}
+
+<body>
+	<div class="blog" id="blog">
+		<div class="container">
+			<div class="default-heading">
+				<h2>
+                    <form action="{% url 'Appblog:register' %}" method="POST">{% csrf_token %}
+                        <table>
+                            {{ formulario.as_table }}
+                        </table>
+                        <button type="submit"> REGISTRATE </button>
+                    </form>
+                    
+
+                </h2>
+			</div>
+		</div>
+	</div>
+	<h2>{{ mensaje }}</h2>
+</body>
+
+{% endblock cuerpo %}	

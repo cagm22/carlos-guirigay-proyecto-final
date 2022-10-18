@@ -1,0 +1,75 @@
+<!-- blog -->
+<div class="blog" id="blog">
+    <div class="container">
+        <div class="default-heading">
+            <!-- heading -->
+            <h2>Latest Blogs</h2>
+            <h2>{{ mensaje }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post1.imagen_referencia.url }} alt="Blog" />
+
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post1.slug %}">{{ post1.titulo }}</a></h3>
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post1.fecha_publicacion }} | {{ post1.categoria }} | {{ post1.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post1.descripcion }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post2.imagen_referencia.url }} alt="Blog" />
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post2.slug %}">{{ post2.titulo }}</a></h3>
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post2.fecha_publicacion }} | {{ post2.categoria }} | {{ post2.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post2.descripcion }}</p>
+                </div>
+            </div><div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post3.imagen_referencia.url }} alt="Blog" />
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post3.slug %}">{{ post3.titulo }}</a></h3>
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post3.fecha_publicacion }} | {{ post3.categoria }} | {{ post3.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post3.descripcion }}</p>
+                </div>
+            </div><div class="col-md-6 col-sm-6">
+                <!-- blog entry -->
+                <div class="entry">
+                    <!-- blog entry image -->
+                    <img class="img-responsive" src={{ post4.imagen_referencia.url }} alt="Blog" />
+                    <!-- heading / blog post title -->
+                    <h3><a href="{% url 'Appblog:detalle_post' post4.slug %}">{{ post4.titulo }}</a></h3>
+                    <!-- blog information -->
+                    <span class="meta">
+                        {{ post4.fecha_publicacion }} | {{ post4.categoria }} | {{ post4.autor }}
+                    </span>
+                    <!-- paragraph -->
+                    <p>{{ post4.descripcion }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#" class="btn btn-default">See More</a>
+        </div>
+    </div>
+</div>
+<!-- blog end -->

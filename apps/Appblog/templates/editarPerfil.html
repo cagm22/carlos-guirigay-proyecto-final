@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block titulo %} Editar Perfil {% endblock titulo %}
+{% block banner %} EDITANDO NUESTRO PERFIL {{ user }} {% endblock banner %}
+{% block subbanner %}{% endblock subbanner %}
+{% block cuerpo %}
+
+
+<body>
+	<div class="blog" id="blog">
+		<div class="container">
+			<div class="default-heading">
+                <h3>{{ mensaje }}</h3>
+                <img src="{{ avatar }}" alt="">
+				<h2>
+                    <form action="{% url 'Appblog:editarPerfil' %}" method="POST">{% csrf_token %}
+                        <table>
+                            {{ formulario.as_table }}
+                        </table>
+                        <a href="{% url 'Appblog:agregarAvatar' %}">Cambiar Avatar</a>
+                        <br/>
+                        <br/>
+
+                        
+                        <input type="submit" value="Guardar">
+                    </form>
+                    
+                </h2>
+			</div>
+		</div>
+	</div>
+</body>
+
+{% endblock cuerpo %}	

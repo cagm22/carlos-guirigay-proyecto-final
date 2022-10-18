@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block titulo %} Crear Post {% endblock titulo %}
+{% block banner %} CREANDO UN POST {% endblock banner %}
+{% block subbanner %}{% endblock subbanner %}
+{% block cuerpo %}
+
+
+<body>
+	<div class="blog" id="blog">
+		<div class="container">
+			<div class="default-heading">
+				<h2>
+                    {% if miFormulario.errors %}
+                    <p style="color: red;"> Estan mal los datos </p>
+                    {% endif %}
+
+
+
+                    <form action="" method="POST">{% csrf_token %}
+                        <table>
+                            {{ miFormulario.as_table }}
+                        </table>
+                        <input type="submit" value="Enviar">
+                    </form>
+                    
+
+
+
+
+
+                </h2>
+			</div>
+		</div>
+	</div>
+</body>
+
+{% endblock cuerpo %}	

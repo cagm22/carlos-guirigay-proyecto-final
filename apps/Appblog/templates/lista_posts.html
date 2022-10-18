@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block titulo %} LISTA DE POSTS {% endblock titulo %}
+{% block banner %}Listado de Posts {% endblock banner %}
+{% block subbanner %}{% endblock subbanner %}
+{% block cuerpo %}
+
+
+<body>
+	<div class="blog" id="blog">
+		<div class="container">
+			<div class="default-heading">
+				<h2>Listado de Posts Publicados</h2>
+				<br>
+			</div>
+				{% for p in lista_posts %}
+					<h4>{{p}}</h4>
+					<div class="container"><p>{{ p.descripcion }}</p>
+					<div class="container"></div><p>{{ p.autor }} | {{ p.fecha_publicacion }}</p>
+					<div class="container"><a href="{% url 'Appblog:detalle_post' p.slug %}">"Leer mas"</a></div>
+					<div class="container"><a href="{% url 'Appblog:eliminarPost' p.titulo %}">"Eliminar"</a></div>
+					<div class="container"><a href="{% url 'Appblog:editarPost' p.titulo %}">"Editar"</a></div>
+
+
+			</div>
+				{% endfor %}
+			<br>
+			<br>
+			<div>
+				<h3><a href="{% url 'Appblog:postformulario' %}">CREAR NUEVO POST</a></h3>
+			</div>
+		</div>
+	</div>
+</body>
+
+{% endblock cuerpo %}	
